@@ -12,7 +12,6 @@ export const App = () => {
 
   const total = good + neutral + bad;
   const positivePercentage = total === 0 ? 0 : Math.round((good * 100) / total);
-  const options = ['good', 'neutral', 'bad'];
 
   const onLeaveFeedback = key => {
     switch (key) {
@@ -30,7 +29,10 @@ export const App = () => {
   return (
     <div>
       <Section title="Please leave feedback">
-        <FeedbackOptions options={options} onLeaveFeedback={onLeaveFeedback} />
+        <FeedbackOptions
+          options={Object.keys({ good, neutral, bad })}
+          onLeaveFeedback={onLeaveFeedback}
+        />
       </Section>
 
       <Section title="Statistics">
